@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple QR Code Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/
+  qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .container {
+        /* border:2px solid #ccc; */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+  </style>
+</head> 
+<body>
+
+  <h2>QR Code Generator</h2>
+  <input type="text" id="text" placeholder="Enter text or Link" />
+  <button onclick="generateQRCode()">Generate QR</button>
+  <br><br>
+  <div id="qrcode"></div>
+  
+  <script>
+    function generateQRCode() {
+      // Clear previous QR code
+      document.getElementById("qrcode").innerHTML = "";
+
+      // Get input text
+      var text = document.getElementById("text").value;
+
+      // Create QR code
+      new QRCode(document.getElementById("qrcode"), {
+        text: text,
+        width: 200,
+        height: 200
+      });
+    }
+  </script>
+</body>
+</html>
